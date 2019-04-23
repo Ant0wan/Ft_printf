@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 11:38:05 by abarthel          #+#    #+#             */
-/*   Updated: 2019/04/23 12:31:27 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/04/23 14:33:21 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 t_dfp	cached_power(int k)
 {
-	return ((t_dfp){.f = 0, .e = 0});
+	return ((t_dfp){.f = 0, .e = k});
 }
 
 t_dfp	minus(t_dfp x, t_dfp y)
@@ -84,19 +84,20 @@ void	cut(t_dfp D, uint32_t parts[3])
 	parts[0] = tmp / TEN7;
 }
 
+#include <stdio.h> // DEBUGG
 void	grisu(double v, char *buffer)
 {
 	t_dfp		w;
 	uint32_t	ps[3];
 	int 		q = 64;
 	int			alpha = 0;
-	int			gamma = 3;
-	
+//	int			gamma = 3;
+	(void)v;	
 //	w = normalize_t_dfp(double2t_dfp(v)); // have to build the functiosn that normalize and tranforme before double to struct.
 //	int mk = k_comp(w.e + q, alpha, gamma);
 	int mk = k_comp(w.e + q, alpha);
 	t_dfp c_mk = cached_power(mk);
 	t_dfp D = multiply(w, c_mk);
 	cut(D, ps);
-	ft_printf(buffer, "%u%07u%07ue%d", ps[0], ps[1], ps[2], -mk);
+	printf(buffer, "%u%07u%07ue%d", ps[0], ps[1], ps[2], -mk);
 }

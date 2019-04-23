@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 10:20:08 by abarthel          #+#    #+#             */
-/*   Updated: 2019/04/23 11:37:41 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/04/23 14:35:11 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ typedef struct	s_dfp
 	int				e;
 	uint64_t		f;
 }				t_dfp;
+
+void	grisu(double v, char *buffer);
 
 #endif
