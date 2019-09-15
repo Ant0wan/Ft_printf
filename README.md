@@ -32,7 +32,7 @@ Here, "integer conversion" stands for d, i, o, u, x, or X conversion.
 
 - `Length modifier` can be added between `%` and the `specifier` above-mentionned:
 
-| `Length modifier` | Description |
+| Length modifier | Description |
 | --- | --- |
 | `hh` | A following integer conversion corresponds to a `signed char` or `unsigned char` argument, or a following n conversion corresponds to a pointer to a signed char argument. |
 | `h` | A following integer conversion corresponds to a `short int` or `unsigned short int` argument, or a following n conversion corresponds to a pointer to a short int argument. |
