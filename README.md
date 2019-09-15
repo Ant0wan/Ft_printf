@@ -30,6 +30,7 @@ Ft_printf handles basic conversion specifiers. A character specifies the type of
 | `S` | Synonym for `ls`. |
 | `p` | The `void *` pointer argument is printed in hexadecimal (as if by `%#x` or `%#lx`). |
 | `n` | The number of characters written so far is stored into the integer pointed to by the corresponding argument. That argument shall be an `int *`, or variant whose size matches the (optionally) supplied integer length modifier. No argument is converted. The behavior is undefined if the conversion specification includes any flags, a field width, or a precision. |
+| `b` | A 'b' modifier will display the bit value of the byte(s) passed as argument. It must be a `signed` variable. The sepcifier can take all modifier and will vary bits displaying accordingly. |
 | `%` | A '%' is written. No argument is converted. The complete conversion specification is '%%'. |
 
 
@@ -61,10 +62,7 @@ Length modifier can be added between `%` and the specifier above-mentionned:
 | `z` | A following integer conversion corresponds to a `size_t` or `ssize_t` argument, or a following n conversion corresponds to a pointer to a size_t argument. |
 | `t` | A following integer conversion corresponds to a `ptrdiff_t` argument, or a following n conversion corresponds to a pointer to a ptrdiff_t argument. |
 
-
 - Ft_printf handles `precision` and `field width`.
-
-- Unit tests has been developed and can be found here:
 
 - Authorized functions:
 
@@ -74,6 +72,8 @@ malloc
 free
 exit
 ```
+
+- Unit tests has been developed and can be found here: <a href="https://github.com/Ant0wan/Ft_printf-unitest.git" target="_blank">Ft_printf-unitest [42 side-project]</a>. The framework is able to execute series of tests on C functions - one after the other - without interruption. 
 
 ---
 
