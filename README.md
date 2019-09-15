@@ -16,13 +16,27 @@ Lib: `libftprintf.a`
 
 It behaves almost as identical to the original MacOS version on the conversions ft_printf can perform.
 
-The conversions handled by ft_printf are:
-```shell=
+### Conversion specifiers
 
-Here, "integer conversion" stands for d, i, o, u, x, or X conversion.
-```
+Ft_printf handles basic conversion specifiers:
 
-- The character % is followed by zero or more of the following flags:
+Conversion specifiers
+       A character that specifies the type of conversion to be applied.  The conversion specifiers and their meanings are:
+
+       d, i   The int argument is converted to signed decimal notation.  The precision, if any, gives the minimum number  of
+              digits  that  must  appear; if the converted value requires fewer digits, it is padded on the left with zeros.
+              The default precision is 1.  When 0 is printed with an explicit precision 0, the output is empty.
+
+       o, u, x, X
+              The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x
+              and  X)  notation.   The  letters abcdef are used for x conversions; the letters ABCDEF are used for X conver‐
+              sions.  The precision, if any, gives the minimum number of digits that must appear; if the converted value re‐
+              quires fewer digits, it is padded on the left with zeros.  The default precision is 1.  When 0 is printed with
+              an explicit precision 0, the output is empty. 
+
+### Flag characters
+
+The character % is followed by zero or more of the following flags:
 
 | Flag characters | Description |
 | --- | --- |
@@ -30,7 +44,9 @@ Here, "integer conversion" stands for d, i, o, u, x, or X conversion.
 | `0` | The  value should be zero padded. For `d`, `i`, `o`, `u`, `x` and `X` conversions, the converted value is padded on the left with zeros rather than blanks. If the `0` and `-` flags both appear, the `0` flag is ignored. If a precision is given with a numeric conversion (`d`, `i`, `o`, `u`, `x`, and `X`), the `0` flag is ignored. For other conversions, the behavior is undefined. |
 | `-` | The converted value is to be left adjusted on the field boundary. (The default is right justification.) The converted value  is padded on the right with blanks, rather than on the left with blanks or zeros. A `-` over‐rides a `0` if both are given. |
 
-- `Length modifier` can be added between `%` and the `specifier` above-mentionned:
+### Length modifier ###
+
+Length modifier can be added between `%` and the specifier above-mentionned:
 
 | Length modifier | Description |
 | --- | --- |
