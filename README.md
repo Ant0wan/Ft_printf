@@ -18,21 +18,20 @@ It behaves almost as identical to the original MacOS version on the conversions 
 
 ### Conversion specifiers
 
-Ft_printf handles basic conversion specifiers:
+Ft_printf handles basic conversion specifiers. A character specifies the type of conversion.
 
-Conversion specifiers
-       A character that specifies the type of conversion to be applied.  The conversion specifiers and their meanings are:
+| Conversion specifiers | Description |
+| --- | --- |
+| `d`, `i` | The `int` argument is converted to signed decimal notation. The precision, if any, gives the minimum number of digits that must appear; if the converted value requires fewer digits, it is padded on the left with zeros. The default precision is 1. When 0 is printed with an explicit precision 0, the output is empty. |
+| `o`, `u`, `x`, `X` | The `unsigned int` argument is converted to `unsigned octal` (o), `unsigned decimal` (u), or `unsigned hexadecimal` (x and  X)  notation. The  letters abcdef are used for x conversions; the letters ABCDEF are used for X conversions. The precision, if any, gives the minimum number of digits that must appear; if the converted value requires fewer digits, it is padded on the left with zeros. The default precision is 1. When 0 is printed with an explicit precision 0, the output is empty. |
+| `c` | If no `l` modifier is present, the int argument is converted to an `unsigned char`, and the resulting character is written. If an `l` modifier is present, the `wchar_t` (wide character) argument is converted to a multibyte sequence with a conversion state starting in the initial state, and the resulting multibyte string is written. |
+| `s` | If  no `l` modifier is present: the `const char *` argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but  not  including) a terminating null  byte ('\0'); if a precision is specified, no more than the number specified are written. If a precision is given, no null byte need be present; if the precision is not specified, or is greater than the size of the array, the array must contain a terminating null byte. If an `l` modifier is present: the `const wchar_t *` argument is expected to be a pointer to an array of wide characters. Wide characters from the array are converted to multibyte characters with a conversion state starting in the initial state before the first wide character), up to and including a terminating null wide character. The resulting multibyte characters are written up to (but not including) the terminating null byte. If a precision is specified, no more bytes than the number specified are written, but no partial multibyte characters are written. Note that the precision determines the number of bytes written, not the number of wide characters or screen positions. The array must contain a terminating null wide character, unless a precision is given and it is so small that the number of bytes  written exceeds it before the end of the array is reached. |
+| `C` | Synonym for `lc`. |
+| `S` | Synonym for `ls`. |
+| `p` | The `void *` pointer argument is printed in hexadecimal (as if by `%#x` or `%#lx`). |
+| `n` | The number of characters written so far is stored into the integer pointed to by the corresponding argument. That argument shall be an `int *`, or variant whose size matches the (optionally) supplied integer length modifier. No argument is converted. The behavior is undefined if the conversion specification includes any flags, a field width, or a precision. |
+| `%` | A '%' is written. No argument is converted. The complete conversion specification is '%%'. |
 
-       d, i   The int argument is converted to signed decimal notation.  The precision, if any, gives the minimum number  of
-              digits  that  must  appear; if the converted value requires fewer digits, it is padded on the left with zeros.
-              The default precision is 1.  When 0 is printed with an explicit precision 0, the output is empty.
-
-       o, u, x, X
-              The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x
-              and  X)  notation.   The  letters abcdef are used for x conversions; the letters ABCDEF are used for X conver‐
-              sions.  The precision, if any, gives the minimum number of digits that must appear; if the converted value re‐
-              quires fewer digits, it is padded on the left with zeros.  The default precision is 1.  When 0 is printed with
-              an explicit precision 0, the output is empty. 
 
 ### Flag characters
 
