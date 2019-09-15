@@ -42,6 +42,10 @@ The character % is followed by zero or more of the following flags:
 | `#` | The value should be converted to an "alternate form". For `o` conversions, the first character of the output string is made zero (by prefixing a `0` if it was not zero already). For `x` and `X` conversions, a nonzero result has the string `"0x"` (or `"0X"` for `X` conversions) prepended to it. For other conversions, the result is undefined. |
 | `0` | The  value should be zero padded. For `d`, `i`, `o`, `u`, `x` and `X` conversions, the converted value is padded on the left with zeros rather than blanks. If the `0` and `-` flags both appear, the `0` flag is ignored. If a precision is given with a numeric conversion (`d`, `i`, `o`, `u`, `x`, and `X`), the `0` flag is ignored. For other conversions, the behavior is undefined. |
 | `-` | The converted value is to be left adjusted on the field boundary. (The default is right justification.) The converted value  is padded on the right with blanks, rather than on the left with blanks or zeros. A `-` over‐rides a `0` if both are given. |
+| `' '` | A blank should be left before a positive number (or empty string) produced by a signed conversion. |
+| `+` | A sign (+ or -) should always be placed before a number produced by a signed conversion. By default, a sign is used only for negative numbers. A `+` overrides a `space` if both are used. |
+| `'` | For decimal conversion (`i`, `d` and `u`) the output is to be grouped with thousands' grouping characters if the locale information indicates any. (See setlocale(3).) |
+
 
 ### Length modifier ###
 
@@ -64,26 +68,12 @@ Length modifier can be added between `%` and the specifier above-mentionned:
 
 - Authorized functions:
 
-    ```
-    write
-    opendir
-    readdir
-    closedir
-    stat
-    lstat
-    getpwuid
-    getgrgid
-    listxattr
-    getxattr
-    time
-    ctime
-    readlink
-    malloc
-    free
-    perror
-    strerror
-    exit
-    ```
+```
+write
+malloc
+free
+exit
+```
 
 ---
 
